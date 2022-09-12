@@ -164,7 +164,7 @@
 							<article id="upload">
 								<h2 class="major">Modell-Upload</h2>
 								<p>Lade Deine STL Datei im folgenden Formular hoch.</p>
-								<form method="post" action="https://formspree.io/f/xoqbjzao">
+								<form  id="form" enctype="multipart/form-data">
 									<div class="fields">
 										<div class="field half">
 											<label for="name">Name</label>
@@ -176,13 +176,14 @@
 										</div>
 										<div class="field">
 											<label for="file">Datei</label>
-											<input type="file" id="file" required></textarea>
+											<input type="file" id="file" multiple required></textarea>
 										</div>
 									</div>
 									<ul class="actions">
 										<li><input type="submit" value="Senden" class="primary" /></li>
 									</ul>
 								</form>
+								<div id="response" style="display:none;"></div>
 							</article>
 
 						<!-- Impressum -->
@@ -259,4 +260,37 @@ E-Mail: kontakt@alignforce.de</p>
 			<script rel="preload" as="script" src="assets/js/main.js"></script> 
 
 	</body>
+	
+	<script>
+        const form = document.getElementById("form");
+        const inputFile = document.getElementById("files");
+        const response = document.getElementById("response");
+ 
+        const formData = new FormData();
+ 
+        const handleSubmit = (event) => {
+            event.preventDefault();
+ 
+            for (const file of inputFile.files) {
+                console.log(file.name);
+                formData.append("files", file);
+            }
+ 
+            fetch("http://92.206.178.235:8666", {
+                method: "post",
+                // mode: "no-cors",
+                body: formData,
+            })
+            .then(res => {console.log(res); formData.delete("files"); return res.json();})
+            .then(json => {
+                    console.log(json);
+                    response.innerHTML = "Uploaded files: " + "<li>" + json.files.join("</li><li>") + "</li>";
+                    response.style.display = "block"; form.style.display = "none" })
+            .catch((error) => ("Something went wrong!", error));
+        };
+ 
+        form.addEventListener("submit", handleSubmit);
+    </script>
+
+
 </html>
