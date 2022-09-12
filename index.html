@@ -139,14 +139,8 @@
 											<textarea name="message" id="message" rows="4" required></textarea>
 										</div>
 									</div>
-								<!-- 	<div class="field half">
-										<input type="checkbox" id="privacy" name="privacy" required>
-										<label for="privacy">Ich stimme der <a href="#datenschutz">Datenschutz&shy;erkl&auml;rung</a> zu.</label>
-									</div>
-									<br> -->
 									<ul class="actions">
 										<li><input type="submit" value="Senden" class="primary" /></li>
-								<!-- 		<li><input type="reset" value="Reset" /></li>  -->
 									</ul>
 								</form>
 							</article>
@@ -155,13 +149,7 @@
 							<article id="upload">
 								<h2 class="major">Upload</h2>
 								<p>Lade Deine STL Datei im folgenden Formular hoch.</p>
-								<form netlify-honeypot="bot-field" name="datei-upload" enctype="multipart/form-data" data-netlify="true">
-									<input type="hidden" name="subject" value="Datei-Upload auf AlignForce erfolgreich." />
-									<p style="display:none;">
-										<label>
-										  Don’t fill this out if you’re human: <input name="bot-field" />
-										</label>
-									  </p>
+								<form method="post" action="https://formspree.io/f/xoqbjzao">
 									<div class="fields">
 										<div class="field half">
 											<label for="name">Name</label>
@@ -171,14 +159,15 @@
 											<label for="email">Email</label>
 											<input type="text" name="email" id="email-up" required/>
 										</div>
-										<div class="field half">
-											<label for="email">Datei</label>
-											<input type="file" name="file" id="file-up" required/>
+										<div class="field">
+											<label for="file">Datei</label>
+											<input type="file" id="file" required></textarea>
 										</div>
 									</div>
-									<button class="primary">Senden</button>
+									<ul class="actions">
+										<li><input type="submit" value="Senden" class="primary" /></li>
+									</ul>
 								</form>
-								<p class="result"></p>
 							</article>
 
 						<!-- Impressum -->
