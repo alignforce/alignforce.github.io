@@ -1,17 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" viewBox="0 0 700 700" width="700" height="700"><defs><radialGradient id="gggrain-gradient" r="0.8">
-      <stop offset="0%" stop-color="#855da8"></stop>
-      <stop offset="50%" stop-color="#6781a3"></stop>
-      <stop offset="100%" stop-color="#8c8394ff"></stop>
-    </radialGradient><filter id="gggrain-filter" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-  <feTurbulence type="fractalNoise" baseFrequency="1.25" numOctaves="2" seed="2" stitchTiles="stitch" x="0%" y="0%" width="100%" height="100%" result="turbulence"></feTurbulence>
-  <feColorMatrix type="saturate" values="0" x="0%" y="0%" width="100%" height="100%" in="turbulence" result="colormatrix"></feColorMatrix>
-  <feComponentTransfer x="0%" y="0%" width="100%" height="100%" in="colormatrix" result="componentTransfer">
-    <feFuncR type="linear" slope="3"></feFuncR>
-    <feFuncG type="linear" slope="3"></feFuncG>
-    <feFuncB type="linear" slope="3"></feFuncB>
-  </feComponentTransfer>
-  <feColorMatrix x="0%" y="0%" width="100%" height="100%" in="componentTransfer" result="colormatrix2" type="matrix" values="1 0 0 0 0
-          0 1 0 0 0
-          0 0 1 0 0
-          0 0 0 15 -7"></feColorMatrix>
-  </filter></defs><g><rect width="100%" height="100%" fill="url(#gggrain-gradient)"></rect><rect width="100%" height="100%" fill="transparent" filter="url(#gggrain-filter)" opacity="0.1" style="mix-blend-mode: soft-light"></rect></g></svg>
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="1400" height="980" xml:space="preserve"><path fill="#636466" stroke="#231F20" stroke-miterlimit="10" d="M0 0h1400v980H0z"/><path fill="#808285" d="m0 629 303-110L0 980z"/><path fill="#77787B" d="m0 418 303 101L0 629z"/><path fill="#8A8C8E" d="m303 519 99 199L0 980z"/><path fill="#808285" d="M402 718 257 980H0z"/><path fill="#939598" d="m303 519 99 199 224-2z"/><path fill="#9D9FA2" d="m303 519-12-305L0 418z"/><path fill="#8A8C8E" d="m0 215 291-1L0 418z"/><path fill="#939598" d="m303 519 204-227-216-78z"/><path fill="#77787B" d="m0 0 291 214-291 1z"/><path fill="#808285" d="m291 214 332-87-116 165z"/><path fill="#6D6E71" d="m347 0-56 214L0 0z"/><path fill="#77787B" d="m347 0-56 214 332-87L515 0z"/><path fill="#808285" d="m515 0 108 127L899 0z"/><path fill="#6D6E71" d="M623 127 507 292l243 159z"/><path fill="#8A8C8E" d="m507 292 119 424-323-197z"/><path fill="#9D9FA2" d="m626 716 124-265-243-159z"/><path fill="#808285" d="M750 451 626 716l379-50z"/><path fill="#9D9FA2" d="m626 716 117 264H257l145-262z"/><path fill="#8A8C8E" d="M1005 666 743 980 626 716z"/><path fill="#77787B" d="m623 127 127 324 313-95z"/><path fill="#939598" d="M1005 666 743 980h502z"/><path fill="#636466" d="m1063 356-58 310-255-215z"/><path fill="#77787B" d="m1063 356-58 310 395-304z"/><path fill="#808285" d="m1400 362-395 304 395 68z"/><path fill="#8A8C8E" d="m899 0 164 356-440-229z"/><path fill="#636466" d="m1400 0-337 356 337 6z"/><path fill="#939598" d="m1104 0-41 356L1400 0z"/><path fill="#8A8C8E" d="m1005 666 395 68v246h-155z"/><path fill="#9D9FA2" d="m899 0 164 356 41-356z"/></svg>
