@@ -55,7 +55,7 @@
 			}
 			</script>
 	</head>
-	<body class="is-preload">
+	<body class="is-preload" onhashchange="resetForm()">
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -161,7 +161,6 @@
 							<!-- Upload -->
 							<article id="upload">
 								<h2 class="major">Modell-Upload</h2>
-								<p>Lade Deine STL Datei im folgenden Formular hoch.</p>
 								<form  id="form" enctype="multipart/form-data">
 									<div class="fields">
 										<div class="field half">
@@ -181,7 +180,12 @@
 										<li><input type="submit" value="Senden" class="primary" /></li>
 									</ul>
 								</form>
-								<div id="response" style="display:none;"></div>
+								<div id="wraploader" style="display: none;">
+									<div class="loader"></div>&nbsp;&nbsp;&nbsp;&nbsp;Lade hoch ...
+								</div>
+							 
+								<div id="response" style="display: none;">
+								</div>
 							</article>
 
 						<!-- Impressum -->
@@ -263,6 +267,7 @@ E-Mail: &#107;&#111;&#110;&#116;&#97;&#107;&#116;&#64;&#97;&#108;&#105;&#103;&#1
         const form = document.getElementById("form");
         const inputFile = document.getElementById("files");
         const response = document.getElementById("response");
+        const loader = document.getElementById("wraploader");
  
         const formData = new FormData();
  
@@ -274,6 +279,8 @@ E-Mail: &#107;&#111;&#110;&#116;&#97;&#107;&#116;&#64;&#97;&#108;&#105;&#103;&#1
                 formData.append("files", file);
             }
  
+            hideForm();
+ 
             fetch("https://kfolamprecht.de/up", {
                 method: "post",
                 // mode: "no-cors",
@@ -282,13 +289,49 @@ E-Mail: &#107;&#111;&#110;&#116;&#97;&#107;&#116;&#64;&#97;&#108;&#105;&#103;&#1
             .then(res => {console.log(res); formData.delete("files"); return res.json();})
             .then(json => {
                     console.log(json);
-                    response.innerHTML = "Uploaded files: " + "<li>" + json.files.join("</li><li>") + "</li>";
-                    response.style.display = "block"; form.style.display = "none" })
-            .catch((error) => ("Something went wrong!", error));
+                    loader.style.display = "none";
+                    response.innerHTML = "Upload erfolgreich: " + "<li>" + json.files.join("</li><li>") + "</li>";
+                })
+            .catch((error) => ("Fehler 1337", error));
         };
  
         form.addEventListener("submit", handleSubmit);
+ 
+        const resetForm = () => {
+            if (form.style.display == "none")
+            {
+                setTimeout(() => {
+                    response.innerHTML = "";
+                    response.style.display = "none"; form.style.display = "block";
+                    loader.style.display = "none";              
+                }, 500);
+            }
+        }
+        const hideForm = () => {
+            response.style.display = "block"; form.style.display = "none";
+            loader.style.display = "block";
+        }      
     </script>
 
+<style>
+.loader {
+    /*width: 48px;
+    height: 48px;*/
+    border: 5px solid #FFF;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    } 
+</style>
 
 </html>
