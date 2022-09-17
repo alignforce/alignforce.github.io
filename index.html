@@ -281,7 +281,9 @@ E-Mail: &#107;&#111;&#110;&#116;&#97;&#107;&#116;&#64;&#97;&#108;&#105;&#103;&#1
  
             hideForm();
  
-            fetch("https://kfolamprecht.de/up", {
+            fetch( "http://localhost:8666", 
+		  "https://kfolamprecht.de/up",
+		{
                 method: "post",
                 // mode: "no-cors",
                 body: formData,
@@ -291,6 +293,7 @@ E-Mail: &#107;&#111;&#110;&#116;&#97;&#107;&#116;&#64;&#97;&#108;&#105;&#103;&#1
                     console.log(json);
                     loader.style.display = "none";
                     response.innerHTML = "Upload erfolgreich: " + "<li>" + json.files.join("</li><li>") + "</li>";
+		    document.body.style.pointerEvents = "auto";
                 })
             .catch((error) => ("Fehler 1337", error));
         };
@@ -310,6 +313,7 @@ E-Mail: &#107;&#111;&#110;&#116;&#97;&#107;&#116;&#64;&#97;&#108;&#105;&#103;&#1
         const hideForm = () => {
             response.style.display = "block"; form.style.display = "none";
             loader.style.display = "block";
+		document.body.style.pointerEvents = "none";
         }      
     </script>
 
