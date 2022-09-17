@@ -182,8 +182,10 @@
 								</form>
 								<div id="wraploader" style="display: none;">
 									<div class="loader"></div>&nbsp;&nbsp;&nbsp;&nbsp;Lade hoch ...
+									<div style="height: 2px; width: 100%; border: 0px solid rgb(64, 64, 64);">
+										<div id="progress" style="height:100%; width:0%; background: rgb(223, 223, 223); transition: width 500ms;"></div>
+									</div>
 								</div>
-							 
 								<div id="response" style="display: none;">
 								</div>
 							</article>
@@ -265,24 +267,42 @@ E-Mail: &#107;&#111;&#110;&#116;&#97;&#107;&#116;&#64;&#97;&#108;&#105;&#103;&#1
 	
 	<script>
         const form = document.getElementById("form");
+		const email = document.getElementById("email-up");
+		const name = document.getElementById("name-up");
         const inputFile = document.getElementById("files");
         const response = document.getElementById("response");
         const loader = document.getElementById("wraploader");
+		const progress = document.getElementById("progress");
  
         const formData = new FormData();
  
         const handleSubmit = (event) => {
             event.preventDefault();
- 
+
+			formData.append("email", email.value);
+			formData.append("name", name.value);
+
             for (const file of inputFile.files) {
                 console.log(file.name);
                 formData.append("files", file);
             }
  
             hideForm();
- 
+
+			const ws = new WebSocket('ws://localhost:8666');
+
+			ws.onopen =  () => {
+			// Send a message to the WebSocket server
+				ws.send(email.value);
+			};
+			ws.onmessage = (e) => {
+				console.log(e.data);
+				progress.style.width = e.data + "%";
+			};
+			ws.onclose = () => console.log('socket closed');
+
             fetch( "http://localhost:8666", 
-		  "https://kfolamprecht.de/up",
+		//   "https://kfolamprecht.de/up",
 		{
                 method: "post",
                 // mode: "no-cors",
@@ -293,7 +313,8 @@ E-Mail: &#107;&#111;&#110;&#116;&#97;&#107;&#116;&#64;&#97;&#108;&#105;&#103;&#1
                     console.log(json);
                     loader.style.display = "none";
                     response.innerHTML = "Upload erfolgreich: " + "<li>" + json.files.join("</li><li>") + "</li>";
-		    document.body.style.pointerEvents = "auto";
+		    		document.body.style.pointerEvents = "auto";
+					progress.style.width = "0%";
                 })
             .catch((error) => ("Fehler 1337", error));
         };
