@@ -62,7 +62,6 @@
 
 				<!-- Header -->
 					<header id="header">
-						<span style="font-family: monospace;"> ░▒ </span>
 						<div class="logo">
 							<!-- <span class="icon fa-gem"></span>  -->
 							<a href="/" style="border:none!important;" aria-label="AlignForce logo"><svg version="1.1" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" style="width:60%;margin-top:15%;">
@@ -164,12 +163,12 @@
 								<h2 class="major">Modell-Upload</h2>
 								<form  id="form" enctype="multipart/form-data">
 									<div class="fields">
-										<div class="field half">
+										<!-- <div class="field half">
 											<label for="name">Name</label>
 											<input type="text" name="name" id="name-up" required/>
-										</div>
+										</div> -->
 										<div class="field half">
-											<label for="email">Email</label>
+											<label for="email">Benutzer</label>
 											<input type="text" name="email" id="email-up" required/>
 										</div>
 										<div class="field">
@@ -181,17 +180,16 @@
 										<li><input type="submit" value="Senden" class="primary" /></li>
 									</ul>
 								</form>
-								<div id="wraploader" style="display: block;"> 
+								<div id="wraploader" style="display: none;"> 
 									<div class="loader"></div>&nbsp;&nbsp;&nbsp;&nbsp;Lade hoch ... 
-									<div style="font-family: monospace; position: relative; overflow: hidden;">
+									<!-- <div style="font-family: monospace; position: relative; overflow: hidden;">
 										<div style="line-height:1em;">░▒░▒░▒░▒░▒░▒░▒░▒░▒░▒░▒░▒░▒░▒░▒░▒░▒░▒░▒░▒░▒░▒░▒░▒░▒░▒░▒░▒░▒░▒░▒░▒░▒░▒░▒░▒</div>
-										<div id="progress" style="position: absolute; top:-1px; left:0; width: 10%; height: 1.2em; background: white;">
-											
+										<div id="progress" style="position: absolute; top:-1px; left:0; width: 10%; height: 1.2em; background: white;">										
 										</div>
-									</div>
-									<!-- <div style="height: 2px; width: 100%; border: 0px solid rgb(64, 64, 64);">
-										<div id="progress" style="height:100%; width:0%; background: rgb(223, 223, 223); transition: width 500ms;"></div>
 									</div> -->
+									<div style="height: 2px; width: 100%; border: 0px solid rgb(64, 64, 64);">
+										<div id="progress" style="height:100%; width:0%; background: rgb(223, 223, 223); transition: width 500ms;"></div>
+									</div>
 								</div>
 								<div id="response" style="display: none;">
 								</div>
@@ -275,7 +273,7 @@ E-Mail: &#107;&#111;&#110;&#116;&#97;&#107;&#116;&#64;&#97;&#108;&#105;&#103;&#1
 	<script>
         const form = document.getElementById("form");
 		const email = document.getElementById("email-up");
-		const name = document.getElementById("name-up");
+		// const name = document.getElementById("name-up");
         const inputFile = document.getElementById("files");
         const response = document.getElementById("response");
         const loader = document.getElementById("wraploader");
