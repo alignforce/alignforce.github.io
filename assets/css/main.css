@@ -1104,7 +1104,8 @@ input[type=submit] {
     -webkit-transition: -webkit-transform 325ms ease-in-out, -webkit-filter 325ms ease-in-out;
     -ms-transition: -ms-transform 325ms ease-in-out, -ms-filter 325ms ease-in-out;
     transition: transform 325ms ease-in-out, filter 325ms ease-in-out;
-    background-image: url("../../images/bg.svg");
+    background-image: url(https://alignforce.de/images/bg.svg);
+
     background-position: center;
     background-size: cover;
     z-index: 1
