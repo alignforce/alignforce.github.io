@@ -289,7 +289,10 @@ E-Mail: &#107;&#111;&#110;&#116;&#97;&#107;&#116;&#64;&#97;&#108;&#105;&#103;&#1
  
             hideForm();
 
-			const ws = new WebSocket('ws://localhost:8666');
+			const ws = new WebSocket(
+				'ws://localhost:8666'
+				//   "https://kfolamprecht.de/up"
+				);
 
 			ws.onopen =  () => {
 			// Send a message to the WebSocket server
@@ -314,7 +317,7 @@ E-Mail: &#107;&#111;&#110;&#116;&#97;&#107;&#116;&#64;&#97;&#108;&#105;&#103;&#1
                     loader.style.display = "none";
                     response.innerHTML = "Upload erfolgreich: " + "<li>" + json.files.join("</li><li>") + "</li>";
 		    		document.body.style.pointerEvents = "auto";
-					progress.style.width = "0%";
+					clearInputs();
                 })
             .catch((error) => ("Fehler 1337", error));
         };
@@ -327,10 +330,17 @@ E-Mail: &#107;&#111;&#110;&#116;&#97;&#107;&#116;&#64;&#97;&#108;&#105;&#103;&#1
                 setTimeout(() => {
                     response.innerHTML = "";
                     response.style.display = "none"; form.style.display = "block";
-                    loader.style.display = "none";              
-                }, 500);
+                    loader.style.display = "none";
+					clearInputs();
+                }, 300);
             }
         }
+		const clearInputs = () => {
+			name.value = "";
+			email.value = "";
+			inputFile.value = "";
+			progress.style.width = "0%";
+		}
         const hideForm = () => {
             response.style.display = "block"; form.style.display = "none";
             loader.style.display = "block";
