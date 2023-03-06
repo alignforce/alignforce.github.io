@@ -145,6 +145,30 @@
 
 							<article id="upload">
 								<h2 class="major">Modell-Upload</h2>
+								<form name="fileForm" enctype="multipart/form-data" data-netlify="true">
+									<div class="fields">
+										<div class="field half">
+											<label for="name">Name</label>
+											<input type="text" name="name" id="name-up" required/>
+										</div>
+										<div class="field half">
+											<label for="email">Email</label>
+											<input type="text" name="email" id="email-up" required/>
+										</div>
+										<div class="field">
+											<label for="file">Datei</label>
+											<input type="file" id="files" multiple required></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Senden" class="primary" /></li>
+									</ul>
+								</form>
+								<p class="result"></p>
+							</article>
+
+							<!-- <article id="upload">
+								<h2 class="major">Modell-Upload</h2>
 								<form  id="form" enctype="multipart/form-data">
 									<div class="fields">
 										<div class="field half">
@@ -169,7 +193,7 @@
 								</div>							 
 								<div id="response" style="display: none;">
 								</div>
-							</article>
+							</article> -->
 
 						<article id="impressum">
 							<h2 class="major">Impressum</h2>
@@ -233,7 +257,7 @@ E-Mail: &#107;&#111;&#110;&#116;&#97;&#107;&#116;&#64;&#97;&#108;&#105;&#103;&#1
 
 	</body>
 	
-	<script>
+	<!-- <script>
         const form = document.getElementById("form");
         const inputFile = document.getElementById("files");
         const response = document.getElementById("response");
@@ -299,6 +323,6 @@ E-Mail: &#107;&#111;&#110;&#116;&#97;&#107;&#116;&#64;&#97;&#108;&#105;&#103;&#1
         transform: rotate(360deg);
     }
     } 
-</style>
+</style> -->
 
 </html>
