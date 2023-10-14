@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://alignforce.de/sitemap.xml
+Sitemap: https://alignforce.github.io/sitemap.xml
